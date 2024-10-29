@@ -1,0 +1,69 @@
+[gd_scene load_steps=13 format=3 uid="uid://craxx8a3pjeip"]
+
+[ext_resource type="Texture2D" uid="uid://df2bvk0qe6d3w" path="res://assets/sprites/portal/portal_idle1.png" id="1_5cv6k"]
+[ext_resource type="Texture2D" uid="uid://besqk51ndniyf" path="res://assets/sprites/portal/portal_idle2.png" id="2_bca2r"]
+[ext_resource type="Texture2D" uid="uid://bdtsl774fx2d3" path="res://assets/sprites/portal/portal_idle3.png" id="3_18ndy"]
+[ext_resource type="Texture2D" uid="uid://cw1lbwd0dypqi" path="res://assets/sprites/portal/portal_idle4.png" id="4_41tqb"]
+[ext_resource type="Texture2D" uid="uid://cpb5uqailpgqe" path="res://assets/sprites/portal/portal_idle5.png" id="5_03rsm"]
+[ext_resource type="Texture2D" uid="uid://bd5ch1g426w63" path="res://assets/sprites/portal/portal_idle6.png" id="6_n4317"]
+[ext_resource type="Texture2D" uid="uid://jo6leh3srfmw" path="res://assets/sprites/portal/portal_idle7.png" id="7_2eyqt"]
+[ext_resource type="Texture2D" uid="uid://b22fean5qpqdf" path="res://assets/sprites/portal/portal_idle8.png" id="8_gdv2y"]
+[ext_resource type="Texture2D" uid="uid://bgwjqmtqepku5" path="res://assets/sprites/portal/portal_idle9.png" id="9_43w3p"]
+[ext_resource type="Script" path="res://scripts/blue_portal.gd" id="10_mmoe1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86lkc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5cv6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bca2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_18ndy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_41tqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_03rsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n4317")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2eyqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gdv2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_43w3p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4mpv"]
+radius = 12.0
+height = 48.0
+
+[node name="Portal" type="Area2D"]
+collision_mask = 2
+script = ExtResource("10_mmoe1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_86lkc")
+autoplay = "default"
+frame_progress = 0.395205
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_f4mpv")
+debug_color = Color(0.962574, 0, 0.503785, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

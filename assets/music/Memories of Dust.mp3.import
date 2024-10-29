@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1djjk4mohjty"
+path="res://.godot/imported/Memories of Dust.mp3-a88864e1f9d247e0c4d2def92b7bd16e.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Memories of Dust.mp3"
+dest_files=["res://.godot/imported/Memories of Dust.mp3-a88864e1f9d247e0c4d2def92b7bd16e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
